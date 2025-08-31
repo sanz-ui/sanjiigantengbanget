@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas IPA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      transition: opacity 0.6s ease-in-out;
+      opacity: 0;
+    }
+    .page {
+      display: none;
+      width: 100%;
+      max-width: 800px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .page.active {
+      display: block;
+    }
+    h1 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    h1 span {
+      font-size: 2rem;
+      margin-right: 10px;
+    }
+    .btn {
+      display: block;
+      margin: 20px auto;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      background: #3498db;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.2s, background 0.3s;
+    }
+    .btn:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+    }
+    ul {
+      margin-left: 20px;
+    }
+    h2 {
+      text-align: center;
+      color: #16a085;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Halaman 1 -->
+  <div id="page1" class="page active" style="text-align:center;">
+    <h1><span>📘</span> Tugas IPA</h1>
+    <button class="btn" onclick="goToPage(2)">Penanggulangan Sistem Ekskresi</button>
+  </div>
+
+  <!-- Halaman 2 -->
+  <div id="page2" class="page">
+    <h2>Penanggulangan Sistem Ekskresi</h2>
+    <p>Minum air putih yang cukup, mengonsumsi makanan sehat dan bergizi seimbang, berolahraga secara teratur, tidak merokok dan membatasi alkohol, menjaga berat badan ideal, tidak menahan buang air, serta melakukan pemeriksaan kesehatan rutin.</p>
+
+    <h3>1. Jaga Asupan Cairan</h3>
+    <p>Minum air putih yang cukup: untuk membantu ginjal bekerja optimal menyaring limbah dan mencegah dehidrasi.</p>
+
+    <h3>2. Atur Pola Makan</h3>
+    <ul>
+      <li>Kurangi konsumsi garam: untuk menjaga tekanan darah stabil dan tidak membebani ginjal.</li>
+      <li>Perbanyak konsumsi sayuran, buah-buahan, dan biji-bijian: untuk asupan nutrisi yang seimbang.</li>
+      <li>Hindari makanan olahan atau tinggi lemak: karena bisa membebani kerja hati dan ginjal.</li>
+    </ul>
+
+    <h3>3. Aktif Secara Fisik</h3>
+    <p>Berolahraga secara teratur (minimal 30 menit per hari) untuk melancarkan sirkulasi darah dan menunjang fungsi organ ekskresi.</p>
+
+    <h3>4. Hindari Kebiasaan Buruk</h3>
+    <ul>
+      <li>Jangan merokok: karena zat kimia dalam rokok dapat merusak jaringan tubuh.</li>
+      <li>Batasi atau hindari minuman beralkohol: yang berbahaya bagi kinerja hati dan ginjal.</li>
+    </ul>
+
+    <h3>5. Jaga Kebersihan dan Kesehatan Tubuh</h3>
+    <ul>
+      <li>Tidak menahan buang air kecil: karena bisa meningkatkan risiko infeksi saluran kemih.</li>
+      <li>Jaga kebersihan diri: untuk mencegah infeksi.</li>
+      <li>Istirahat yang cukup: agar tubuh dan organ ekskresi bisa pulih dan berfungsi optimal.</li>
+    </ul>
+
+    <h3>6. Lakukan Pemeriksaan Kesehatan Berkala</h3>
+    <p>Lakukan check-up rutin: untuk mendeteksi dini masalah pada ginjal atau hati, terutama jika memiliki riwayat diabetes atau hipertensi.</p>
+
+    <h3>7. Hindari Zat Berbahaya</h3>
+    <p>Hindari penggunaan obat-obatan atau suplemen secara berlebihan tanpa pengawasan dokter karena dapat membebani kerja organ ekskresi.</p>
+
+    <button class="btn" style="background:#e67e22;" onclick="goToPage(1)">⬅ Kembali ke Halaman 1</button>
+  </div>
+
+  <script>
+    // Efek fade in saat pertama kali buka
+    window.onload = () => { document.body.style.opacity = "1"; };
+
+    // Fungsi pindah halaman
+    function goToPage(num) {
+      document.body.style.opacity = "0"; // fade out
+      setTimeout(() => {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById("page"+num).classList.add('active');
+        document.body.style.opacity = "1"; // fade in
+      }, 600);
+    }
+  </script>
+</body>
+</html>
